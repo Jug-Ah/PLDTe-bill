@@ -9,7 +9,7 @@ class doSql(object):
     errmsg ="" 
 	
     def __init__(self):
-        self._cxn = psycopg2.connect("dbname='hygeia' user='postgres' password='ihopeyourehappy' host='127.0.0.1' port='5432'")
+        self._cxn = psycopg2.connect("dbname='e-bill' user='postgres' password='ihopeyourehappy' host='127.0.0.1' port='5432'")
         self._cur = self._cxn.cursor()
         
     def __del__(self):

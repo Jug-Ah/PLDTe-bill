@@ -67,15 +67,15 @@ $$
 
 create or replace
     function set_payment(p_accountno int,  p_pldtacct int, p_amount decimal(9,2)) 
-    returns text as 
+    returns int as 
 $$
 	declare
 	receipt int;
     begin
       insert into payBill(accountno, pldtacct, amount) values
-        (p_accountno, p_pldtacct, p_amount);
+        (p_accountno, p_pldtacct, p_amount) returning receiptNo into receipt;
     return receipt;
-    end;
+  end;
 $$
   language  'plpgsql';
 
@@ -85,17 +85,17 @@ $$
 create table receipt (
 	receipt_pk serial NOT NULL primary key,
 	receiptNo int,
-	timedate timestamp,
+	timedate timestamp default current_timestamp,
 	amount decimal(9,2)
 );
 
 create or replace
-    function set_receipt(p_receiptNo int,  p_timedate timestamp, p_amount decimal(9,2)) 
+    function set_receipt(p_receiptNo int, p_amount decimal(9,2)) 
     returns text as 
 $$
     begin
-      insert into receipt(receiptNo, timedate, amount) values
-        (p_receiptNo, p_timedate, p_amount);
+      insert into receipt(receiptNo, amount) values
+        (p_receiptNo, p_amount);
     return 'OK';
     end;
 $$
