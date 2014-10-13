@@ -1,6 +1,7 @@
 import simplejson as json
 import cgi
 from dosql import *
+from payment import *
 
 def index(req, accountno, pldtacct):
 	accountno = cgi.escape(accountno)
@@ -20,15 +21,3 @@ def index(req, accountno, pldtacct):
 		
 		return json.dumps(transaction)
 	
-def pay_bill(balance, bill):
-	x = doSql()
-	
-	if bill > balance:
-		response = "Insufficient Funds"
-		return response
-	else:
-		balance -= bill
-		newbalance = x.execqry("update bankAccount set balance = '" + str(balance) + "' where accountno = '" + accountno + "');", True)
-		
-		response = "OK"
-		return response
