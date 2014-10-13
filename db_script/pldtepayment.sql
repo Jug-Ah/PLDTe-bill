@@ -61,18 +61,19 @@ $$
  create table payBill (
 	receiptNo serial NOT NULL primary key,
 	accountno int references bankAccount(accountno),
-	pldtacct int references pldtAccount(pldtacct)
+	pldtacct int references pldtAccount(pldtacct),
+	amount decimal(9,2)
 );
 
 create or replace
-    function set_payment(p_accountno int,  p_pldtacct int) 
+    function set_payment(p_accountno int,  p_pldtacct int, p_amount decimal(9,2)) 
     returns text as 
 $$
 	declare
 	receipt int;
     begin
-      insert into payBill(accountno, pldtacct) values
-        (p_accountno, p_pldtacct);
+      insert into payBill(accountno, pldtacct, amount) values
+        (p_accountno, p_pldtacct, p_amount);
     return receipt;
     end;
 $$
@@ -83,9 +84,9 @@ $$
 -- start of receipt table
 create table receipt (
 	receipt_pk serial NOT NULL primary key,
-	receiptNo int references payBill(receiptNo),
+	receiptNo int,
 	timedate timestamp,
-	amount decimal(9,2) references pldtAccount(bill)
+	amount decimal(9,2)
 );
 
 create or replace
