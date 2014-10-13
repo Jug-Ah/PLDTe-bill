@@ -41,4 +41,37 @@ function paybill()
               }
             }
     });
+	makereceipt();
+}
+
+function makereceipt()
+{
+  $.ajax({
+      url: siteloc + scriptloc + "addreceipt.py",
+      data: {receipt_no:sessionStorage.receipt},
+      dataType: 'json',
+      async: true,
+      success: function (res) {
+					console.log("Receipt created");
+              }
+    });
+}
+
+function printreceipt()
+{
+  $.ajax({ 
+      url: siteloc + scriptloc + "addreceipt.py",
+      data: {receipt_no:sessionStorage.receipt},
+	  dataType: 'json',
+      async: true,
+      success: function (res) {
+				  var receiptNo = res[0][0];
+                  var timedate = res[0][1];
+				  var amount = res[0][2];
+
+
+                  $("#ExPlan").html(EPlan);
+                  $("#DiPlan").html(DPlan);
+              }
+    });
 }
