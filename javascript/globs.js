@@ -70,8 +70,9 @@ function printreceipt()
 				  var amount = res[0][2];
 
 
-                  $("#ExPlan").html(EPlan);
-                  $("#DiPlan").html(DPlan);
+                  $("#receiptNo").html(receiptNo);
+                  $("#timedate").html(timedate);
+				  $("#amount").html(amount);
               }
     });
 }
