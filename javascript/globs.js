@@ -1,5 +1,5 @@
 //define functions and global variables here...
-var siteloc = "http://localhost/PLDT";
+var siteloc = "http://localhost/PLDTe-bill";
 var scriptloc = "/scripts/";
 
 
