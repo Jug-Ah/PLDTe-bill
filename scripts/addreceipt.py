@@ -9,7 +9,7 @@ def index(req,receipt_no):
 	
 	amount = x.execqry("select amount from payBill where receiptNo = " + receipt_no + ";", False)[0][0]
 	
-	rets = x.execqry("select * from get_receipt('" + str(receipt_no) + "', '" + str(amount) + "');", False)
+	rets = x.execqry("select * from set_receipt('" + receipt_no + "', '" + str(amount) + "');", False)
 	result = []
 	for ret in rets:
 		stringed = map(str, ret)
