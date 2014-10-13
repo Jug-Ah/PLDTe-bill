@@ -110,3 +110,6 @@ $$
      where receipt_pk = $1;   
 $$
   language  'sql';
+
+  select set_pldtaccount(1, 10.00);
+  select set_bankaccount(1, 1000.00);

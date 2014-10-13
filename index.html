@@ -23,7 +23,7 @@
 					<div class="modal-header" id="ModalHeader">
 						<button type="button" class="close" data-dismiss="modal" data-target="#SignUpModal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">lose</span></button>
-						<h1 class="modal-title">PLDT Online Payment</h1> <h4> It's a lot faster. </h4>
+						<h1 class="modal-title">PLDT E-Payment</h1> <h4> It's a lot faster. </h4>
 						<!-- Tabs -->
 						<ul class="nav nav-tabs" role="tablist" id="RegisterTab">
 						
@@ -35,24 +35,30 @@
 					<div class="modal-body" id="ModalBody">				
 						<div class="tab-content">
 							
+							<!-- Pay Here -->
 							<div class="tab-pane fade in active" id="inputpage"> <br> <br> 
-								<form class="center form" id="form-input" method="post" action="javascript: getBill();">	
+								<form class="center form" id="form-input" method="post" action="javascript: paybill();">	
 									<div class="control-group">
 										<div class="controls">
 											<label class="control-label" for="PLDTaccountnumber">PLDT Account Number:</label>
-											<input name="PLDTaccountnumber" id="PLDTaccountnumber" value="" type="text" class="form-control" placeholder="PLDT Account Number">
+											<input name="PLDTaccountnumber" id="PLDTaccountnumber" value="" type="text" class="form-control" placeholder="PLDT Account Number"> <br>
 
 											<label class="control-label" for="BANKaccountnumber">Bank Account Number:</label>
-											<input name="BANKaccountnumber" id="BANKaccountnumber" value="" type="text" class="form-control" placeholder="Bank Account Number">
+											<input name="BANKaccountnumber" id="BANKaccountnumber" value="" type="text" class="form-control" placeholder="Bank Account Number"> <br>
 
 											<label class="control-label" for="amount-input">Amount:</label>
 											<input name="amount-input" id="amount-input" value="" type="text" class="form-control" placeholder="Amount to pay">
 										</div> <br>
 										
+											<p id ="output"> </p>
+										
 									</div> <br> 
-									<button name="submit" id="submit" value="" type="submit" class="btn btn-primary btn-block">Submit</button> 
+									<button name="submit" id="submit" value="" type="submit" class="btn btn-primary btn-block">Pay</button> 
 								</form>
+								
 							</div>
+
+
 							<div class="tab-pane fade" id="bill-page"> <br> <br> 
 								<form class="center form" id="form-signup" method="post" action="javascript: paybill();">	
 									<div class="control-group">

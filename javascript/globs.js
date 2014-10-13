@@ -2,30 +2,6 @@
 var siteloc = "http://localhost/PLDT";
 var scriptloc = "/scripts/";
 
-$(document).ready(function () {
-	
-	document.getElementById("#pldt-acc-display").innertext = "Paragraph changed!";
-	//$("#pldt-acc-display").attr("innerhtml","asds");
-	$('#form-input').validate({
-        rules: {
-            PLDTaccountnumber: {                
-                required: true                
-            },
-			BANKaccountnumber: {
-				required: true,
-				
-			},			
-        },
-      
-        highlight: function (element) {
-            $(element).closest('.controls').addClass('has-error');
-        },
-        success: function (element) {
-            $(element).closest('.controls').removeClass('has-error');
-        }
-    });
-});
-  
 
 function getBill()
 {  	
@@ -51,14 +27,18 @@ function getBill()
 
 function paybill()
 {
-	$.ajax({
+  $.ajax({
       url: siteloc + scriptloc + "paybill.py",
       data: {accountno:$("#BANKaccountnumber").val(),pldtacct:$("#PLDTaccountnumber").val(),amount:$("#amount-input").val()},
       dataType: 'json',
-	  async: true,
-      success: function (res) {					
-				$("#pldt-acc-display").val("hey");
-				
+    async: true,
+      success: function (res) {         
+              if (isNaN(res)){
+                alert(res)
+              }
+              else {
+                alert("OK")
+              }
             }
     });
 }
