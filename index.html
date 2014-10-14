@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<meta charset="utf-8"> <!-- for character ">>" --> 
+		<!-- solve problem for icon's flat UI -->
+
+		<link href="pictures/favicon.png" rel="shortcut icon">
+		<title>PLDT Online Billing</title>
+
+		<link href="css/bootstrap-custom.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+		<script src="javascript/jquery.js"></script>
+		<script src="javascript/jquery.validate.js"></script>
+		<script src="javascript/bootstrap.js"></script>
+		<script src="javascript/globs.js"></script>
+		<script src="javascript/jqinit.js"></script>
+	</head>
+
+	<body>
+				
+			<div class="modal-dialog" id="ModalDialog">
+				<div class="modal-content">
+					<!-- Header -->
+					<div class="modal-header" id="ModalHeader">
+						<button type="button" class="close" data-dismiss="modal" data-target="#SignUpModal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">lose</span></button>
+						<h1 class="modal-title">PLDT Online Payment</h1> <h4> It's a lot faster. </h4>
+						<!-- Tabs -->
+						<ul class="nav nav-tabs" role="tablist" id="RegisterTab">
+						
+						  
+						  
+						</ul>
+					</div>
+					<!-- Body -->
+					<div class="modal-body" id="ModalBody">				
+						<div class="tab-content">
+							
+							<div class="tab-pane fade in active" id="inputpage"> <br> <br> 
+								<form class="center form" id="form-input" method="post" action="javascript: getBill();">	
+									<div class="control-group">
+										<div class="controls">
+											<label class="control-label" for="PLDTaccountnumber">PLDT Account Number:</label>
+											<input name="PLDTaccountnumber" id="PLDTaccountnumber" value="" type="text" class="form-control" placeholder="PLDT Account Number">
+
+											<label class="control-label" for="BANKaccountnumber">Bank Account Number:</label>
+											<input name="BANKaccountnumber" id="BANKaccountnumber" value="" type="text" class="form-control" placeholder="Bank Account Number">
+
+											<label class="control-label" for="amount-input">Amount:</label>
+											<input name="amount-input" id="amount-input" value="" type="text" class="form-control" placeholder="Amount to pay">
+										</div> <br>
+										
+									</div> <br> 
+									<button name="submit" id="submit" value="" type="submit" class="btn btn-primary btn-block">Submit</button> 
+								</form>
+							</div>
+							<div class="tab-pane fade" id="bill-page"> <br> <br> 
+								<form class="center form" id="form-signup" method="post" action="javascript: paybill();">	
+									<div class="control-group">
+										<div class="panel panel-info">
+								            <div id="pldtnum" class="panel-heading">
+								              
+								            <!--<h3 id="pldt-acc-display" class="panel-title">Account Number: </h3>-->
+								              
+								            </div>
+								            <div class="panel-body">
+								              <label id="current-bill"> </label>
+								            </div>
+								          </div>
+										
+									</div> <br> 
+									<button name="paynow" id="paynow" value="" type="submit" class="btn btn-primary btn-block">Pay Now</button> 
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		
+
+
+	</body>
+</html>
