@@ -36,7 +36,7 @@
 						<div class="tab-content">
 							
 							<!-- Pay Here -->
-							<div class="tab-pane fade" id="inputpage"> <br> <br> 
+							<div class="tab-pane fade in active" id="inputpage"> <br> <br> 
 								<form class="center form" id="form-input" method="post" action="javascript: getBill();">	
 									<div class="control-group">
 										<div class="controls">
@@ -80,22 +80,27 @@
 								</form>
 							</div>
 
-							<div class="tab-pane fade in active" id="afterpayment-page"> <br> <br> 
-								<form class="center form" id="form-signup" method="post" action="javascript: paybill();">	
+							<div class="tab-pane fade" id="receipt-page"> <br> <br> 
+								
 									<div class="control-group">
 										<div class="panel panel-info">
 								            <div class="alert alert-success" role="alert">
 										        <strong>Great!</strong> You have successfully paid your bill.
 										    </div>
-								            <div class="panel-body">
-								              <label id="current-bill"> </label>
+								            <div class="panel-body">								            	
+								            	<label id="receiptNo"></label><br>
+								            	<label id="pldtnum"></label><br>
+								            	<label id="timedate"></label><br>
+								            	<label id="amount"></label><br>
+								            	<label id="latest-bill"></label><br>
+								            	 
+								              
 								            </div>
 
 								         </div>								         
 										
-									</div> <br> 
-									<button name="paynow" id="paynow" value="" type="submit" class="btn btn-primary btn-block">Pay Now</button> 
-								</form>
+									</div> <br> 									
+								
 							</div>
 							
 						</div>
