@@ -10,13 +10,13 @@ function getBill()
       data: {pldtNum:$("#PLDTaccountnumber").val()},
       dataType: 'json',
 	  async: true,
-      success: function (res) {
-      			
+      success: function (res) {     
+        
       			accountnumdisplay = ' <h3 id="pldt-acc-display" class="panel-title">PLDT Account Number: ';
 				accountnumdisplay += res[0][0];
 				accountnumdisplay += '</h3>';	
 				$("#pldtnum").html(accountnumdisplay);		
-				$("#current-bill").html("Bill: " + res[0][1]);
+				$("#current-bill").html("Latest Bill: P" + res[0][1]);
 				
 				
             }
@@ -38,10 +38,15 @@ function paybill()
               }
               else {
                 alert("OK")
+                accountnumdisplay = ' <h3 id="pldt-acc-display" class="panel-title">PLDT Account Number: ';
+                accountnumdisplay += res[0][0];
+                accountnumdisplay += '</h3>'; 
+                $("#pldtnum").html(accountnumdisplay);    
+                $("#current-bill").html("Latest Bill: P" + res[0][1]);
               }
             }
     });
-	makereceipt();
+  makereceipt();
 }
 
 function makereceipt()
@@ -52,7 +57,7 @@ function makereceipt()
       dataType: 'json',
       async: true,
       success: function (res) {
-					console.log("Receipt created");
+          console.log("Receipt created");
               }
     });
 }
@@ -62,17 +67,17 @@ function printreceipt()
   $.ajax({ 
       url: siteloc + scriptloc + "addreceipt.py",
       data: {receipt_no:sessionStorage.receipt},
-	  dataType: 'json',
+    dataType: 'json',
       async: true,
       success: function (res) {
-				  var receiptNo = res[0][0];
+          var receiptNo = res[0][0];
                   var timedate = res[0][1];
-				  var amount = res[0][2];
+          var amount = res[0][2];
 
 
                   $("#receiptNo").html(receiptNo);
                   $("#timedate").html(timedate);
-				  $("#amount").html(amount);
+          $("#amount").html(amount);
               }
     });
 }

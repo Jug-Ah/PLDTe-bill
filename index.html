@@ -36,8 +36,8 @@
 						<div class="tab-content">
 							
 							<!-- Pay Here -->
-							<div class="tab-pane fade in active" id="inputpage"> <br> <br> 
-								<form class="center form" id="form-input" method="post" action="javascript: paybill();">	
+							<div class="tab-pane fade" id="inputpage"> <br> <br> 
+								<form class="center form" id="form-input" method="post" action="javascript: getBill();">	
 									<div class="control-group">
 										<div class="controls">
 											<label class="control-label" for="PLDTaccountnumber">PLDT Account Number:</label>
@@ -46,14 +46,13 @@
 											<label class="control-label" for="BANKaccountnumber">Bank Account Number:</label>
 											<input name="BANKaccountnumber" id="BANKaccountnumber" value="" type="text" class="form-control" placeholder="Bank Account Number"> <br>
 
-											<label class="control-label" for="amount-input">Amount:</label>
-											<input name="amount-input" id="amount-input" value="" type="text" class="form-control" placeholder="Amount to pay">
+											
 										</div> <br>
 										
 											<p id ="output"> </p>
 										
 									</div> <br> 
-									<button name="submit" id="submit" value="" type="submit" class="btn btn-primary btn-block">Pay</button> 
+									<button name="submit" id="submit" value="" type="submit" class="btn btn-primary btn-block">Submit</button> 
 								</form>
 								
 							</div>
@@ -71,7 +70,28 @@
 								            <div class="panel-body">
 								              <label id="current-bill"> </label>
 								            </div>
-								          </div>
+
+								         </div>
+								         <label class="control-label" for="amount-input">Amount:</label>
+										<input name="amount-input" id="amount-input" value="" type="text" class="form-control" placeholder="Amount to pay">
+										
+									</div> <br> 
+									<button name="paynow" id="paynow" value="" type="submit" class="btn btn-primary btn-block">Pay Now</button> 
+								</form>
+							</div>
+
+							<div class="tab-pane fade in active" id="afterpayment-page"> <br> <br> 
+								<form class="center form" id="form-signup" method="post" action="javascript: paybill();">	
+									<div class="control-group">
+										<div class="panel panel-info">
+								            <div class="alert alert-success" role="alert">
+										        <strong>Great!</strong> You have successfully paid your bill.
+										    </div>
+								            <div class="panel-body">
+								              <label id="current-bill"> </label>
+								            </div>
+
+								         </div>								         
 										
 									</div> <br> 
 									<button name="paynow" id="paynow" value="" type="submit" class="btn btn-primary btn-block">Pay Now</button> 

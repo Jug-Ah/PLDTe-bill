@@ -6,13 +6,13 @@ import simplejson as json
 def index(req, pldtNum):	
 	pldtNum = cgi.escape(pldtNum)
 	
-	x = doSql()
-	rets = x.execqry("select * from get_bill('" + pldtNum + "');", False)
-	result = []
-	for ret in rets:
-		stringed = map(str, ret)
-		result.append(stringed)
-		
-	return json.dumps(result)
-		
 	
+	x = doSql()	
+	res = x.execqry("select * from pldtaccount where pldtacct = '" + pldtNum + "';", False)
+	result = []
+	for a in res:
+		stringed = map(str, a)
+		result.append(stringed)
+
+
+	return json.dumps(result)
