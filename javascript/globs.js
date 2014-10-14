@@ -2,27 +2,6 @@
 var siteloc = "http://localhost/PLDTe-bill";
 var scriptloc = "/scripts/";
 
-$(document).ready(function () {
-
-    $('#form-input').validate({
-        rules: {
-            PLDTaccountnumber: {                
-                required: true
-            },
-            BANKaccountnumber: {
-              required: true
-            
-            },
-        },        
-        highlight: function (element) {
-            $(element).closest('.controls').addClass('has-error');
-        },
-        success: function (element) {
-            $(element).closest('.controls').removeClass('has-error');
-        }
-    }); 
-        
-});
 
 
 function getBill()
